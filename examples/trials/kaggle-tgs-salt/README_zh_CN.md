@@ -45,6 +45,5 @@
 用伪标签微调阶段 3 的模型
 
     python3 train.py --ifolds 0 --epochs 300 --lrs cosine --lr 0.001 --min_lr 0.0001 --model_name UNetResNetV4 --depths --pseudo
-    
 
 阶段 6： 将所有阶段 3 和阶段 5 的模型组合起来。

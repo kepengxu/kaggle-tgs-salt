@@ -23,12 +23,10 @@ import os
 import pandas as pd
 import numpy as np
 import json
-import torch
-import torch.nn as nn
 from keras.preprocessing.image import load_img
 from sklearn.model_selection import StratifiedKFold
 import settings
-import utils
+from utils import utils
 
 DATA_DIR = settings.DATA_DIR
 

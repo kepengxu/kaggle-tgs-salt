@@ -24,15 +24,11 @@ import glob
 import argparse
 import numpy as np
 import torch
-import torch.optim as optim
-import torch.nn.functional as F
 
 import settings
 from loader import get_test_loader, add_depth_channel
-from models import UNetResNetV4, UNetResNetV5, UNetResNetV6, UNet7, UNet8
-from postprocessing import crop_image, binarize, resize_image
-from metrics import intersection_over_union, intersection_over_union_thresholds
-from utils import create_submission
+from postprocessing import binarize, resize_image
+from utils.utils import create_submission
 
 def do_tta_predict(args, model, ckp_path, tta_num=4):
     '''

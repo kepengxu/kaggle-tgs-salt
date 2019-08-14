@@ -96,6 +96,7 @@ class RandomRotateWithMask(object):
 
     def _pad_rotate(self, img, angle):
         w, h = img.size
+        img=F.
         img = F.pad(img, w//2, 0, self.pad_mode)
         img = F.rotate(img, angle, False, self.expand, self.center)
         img = F.center_crop(img, (w, h))

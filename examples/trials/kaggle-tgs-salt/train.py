@@ -24,17 +24,15 @@ import argparse
 import time
 
 import torch
-import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 from torch.optim.lr_scheduler import CosineAnnealingLR, ReduceLROnPlateau
 
 from loader import get_train_loaders, add_depth_channel
-from models import UNetResNetV4, UNetResNetV5, UNetResNetV6
-from lovasz_losses import lovasz_hinge
-from focal_loss import FocalLoss2d
+from losses.lovasz_losses import lovasz_hinge
+from losses.focal_loss import FocalLoss2d
 from postprocessing import binarize, crop_image, resize_image
-from metrics import intersection_over_union, intersection_over_union_thresholds
+from metrics.metrics import intersection_over_union, intersection_over_union_thresholds
 import settings
 
 MODEL_DIR = settings.MODEL_DIR
@@ -88,7 +86,7 @@ def train(args):
     else:
         optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=0.9, weight_decay=0.0001)
 
-    train_loader, val_loader = get_train_loaders(args.ifold, batch_size=args.batch_size, dev_mode=args.dev_mode, \
+    train_loader, val_loader = get_train_loaders(args.ifold, batch_size=args.batch_size, dev_mode=args.dev_mode,\
         pad_mode=args.pad_mode, meta_version=args.meta_version, pseudo_label=args.pseudo, depths=args.depths)
 
     if args.lrs == 'plateau':
@@ -223,7 +221,7 @@ if __name__ == '__main__':
     parser.add_argument('--nf', default=32, type=int, help='num_filters param for model')
     parser.add_argument('--lr', default=0.001, type=float, help='learning rate')
     parser.add_argument('--min_lr', default=0.0001, type=float, help='min learning rate')
-    parser.add_argument('--ifolds', default='0', type=str, help='kfold indices')
+    parser.add_argument('--ifold', default='0', type=str, help='kfold indices')
     parser.add_argument('--batch_size', default=32, type=int, help='batch_size')
     parser.add_argument('--start_epoch', default=0, type=int, help='start epoch')
     parser.add_argument('--epochs', default=200, type=int, help='epoch')

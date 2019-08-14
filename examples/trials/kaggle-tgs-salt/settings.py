@@ -21,8 +21,8 @@
 
 import os
 
-DATA_DIR = r'/mnt/chicm/data/salt'
 
+DATA_DIR='fadsfsad'
 TRAIN_DIR = os.path.join(DATA_DIR, 'train')
 TEST_DIR = os.path.join(DATA_DIR, 'test')
 
@@ -43,3 +43,11 @@ Y_COLUMN = 'file_path_mask'
 
 H = W = 128
 ORIG_H = ORIG_W = 101
+
+
+sample_submission_path = '../input/siim-acr-pneumothorax-segmentation/sample_submission.csv'
+train_rle_path = '/home/cooper/PycharmProjects/SIIM/siim-acr-pneumothorax-segmentation/dataset/pneumothorax/train-rle.csv'
+data_folder = "/home/cooper/PycharmProjects/SIIM/siim-acr-pneumothorax-segmentation/dataset/pneumothorax/dicom-images-train"
+test_data_folder = "/home/cooper/PycharmProjects/SIIM/siim-acr-pneumothorax-segmentation/dataset/pneumothorax/dicom-images-test"
+DATASETDIR='/home/cooper/PycharmProjects/SIIM/siim-acr-pneumothorax-segmentation/dataset/pneumothorax'
+df_path='/home/cooper/PycharmProjects/nni/examples/trials/kaggle-tgs-salt/testdir/train.csv'

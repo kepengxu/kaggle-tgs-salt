@@ -19,14 +19,13 @@
 # DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import os, cv2, glob
 import numpy as np
 from PIL import Image
 
 import torch
 import torch.utils.data as data
-from torchvision import datasets, models, transforms
-from utils import read_masks, get_test_meta, get_nfold_split
+from torchvision import transforms
+from utils.utils import read_masks, get_test_meta, get_nfold_split
 import augmentation as aug
 from settings import *
 

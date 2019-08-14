@@ -22,10 +22,9 @@
 import os
 import numpy as np
 import pandas as pd
-from scipy import ndimage as ndi
 import cv2
 
-from utils import get_crop_pad_sequence, run_length_decoding
+from utils.utils import get_crop_pad_sequence, run_length_decoding
 import settings
 
 def resize_image(image, target_size):
